@@ -10,6 +10,7 @@ import org.springframework.web.servlet.mvc.Controller;
 
 import com.newlecture.web.entity.Notice;
 import com.newlecture.web.service.NoticeService;
+import com.newlecture.web.service.jdbc.JDBCNoticeService;
 
 public class ListController implements Controller
 {
@@ -28,7 +29,6 @@ public class ListController implements Controller
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{	
 		ModelAndView mv = new ModelAndView("notice.list");
-		//mv.setViewName("notice.list");
 		
 		List<Notice> list = noticeService.getList(1, "TITLE", "");
 		mv.addObject("list", list);

@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title><tiles:getAsString name="title"/></title>
+    <title>공지사항1</title>
     
     <link href="/css/customer/layout.css" type="text/css" rel="stylesheet" />
     <style>

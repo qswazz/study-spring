@@ -7,6 +7,10 @@
         http://www.springframework.org/schema/mvc
         https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+
+
+	
+	
     <bean id="/index" class="com.newlecture.web.controller.IndexController"/>
     <bean id="/notice/list" class="com.newlecture.web.controller.notice.ListController">
     	<property name="noticeService" ref="noticeService"/>
@@ -33,7 +37,20 @@
     <mvc:resources location="/static/" mapping="/**"></mvc:resources>
 
 	
-	<bean id="noticeService" class="com.newlecture.web.service.NoticeService"></bean>
+	
+	<bean id="noticeService" class="com.newlecture.web.service.jdbc.JDBCNoticeService">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521/xe" />
+		<property name="username" value="NEWLEC" />
+		<property name="password" value="1234" />
+	</bean>
+	
+	
 	
 
 </beans>
